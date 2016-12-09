@@ -1,5 +1,5 @@
 {
-    "name": "your-name-here/CakeAuth",
+    "name": "jdmaymeow/cake-auth",
     "description": "CakeAuth plugin for CakePHP",
     "type": "cakephp-plugin",
     "require": {
