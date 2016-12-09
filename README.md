@@ -1,6 +1,6 @@
 # CakeAuth plugin for CakePHP
 
-This is part of Cake Advent 2016
+This is part of Code Advent 2016
 
 ## Installation
 
