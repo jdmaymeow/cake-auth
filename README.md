@@ -9,7 +9,7 @@ You can install this plugin into your CakePHP application using [composer](http:
 The recommended way to install composer packages is:
 
 ```
-composer jdmaymeow/cake-auth
+composer require jdmaymeow/cake-auth
 ```
 
 Load plugin
@@ -45,7 +45,7 @@ public function beforeFilter(Event $event)
     {
         $this->Auth->allow(['index', 'view', 'display']);
     }
-    
+
 public function isAuthorized($user)
     {
         // Admin can access every action
@@ -66,4 +66,3 @@ Allowed actions
 |---|---|---|---|---|---|---|---|---|
 |Author|Yes|Yes|Yes|Yes|No|Yes|No|Yes|
 |Admin|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-

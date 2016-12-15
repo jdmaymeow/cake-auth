@@ -1,46 +1,75 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete User'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="users view large-9 medium-8 columns content">
-    <h3><?= h($user->id) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('Username') ?></th>
-            <td><?= h($user->username) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Password') ?></th>
-            <td><?= h($user->password) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Role') ?></th>
-            <td><?= h($user->role) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($user->id) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('UID') ?></th>
-            <td><?= $user->uid ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($user->created) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Modified') ?></th>
-            <td><?= h($user->modified) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Verified') ?></th>
-            <td><?= $user->verified ? __('Yes') : __('No'); ?></td>
-        </tr>
-    </table>
+<?php $this->layout = 'CakeBootstrap.default'; ?>
+<?php $this->start('subtitle_for_page'); ?>
+Cms
+<?php $this->end() ?>
+<!-- Header -->
+<div class="cinema border-bottom-gray bg-amethyst-sl">
+    <div class="container">
+        <h3><?= h($user->id) ?>
+            <div class="pull-right">
+
+                <div class="btn-group">
+                    <?= $this->Html->link(__('New User'), ['action' => 'add'], ['class' => 'btn btn-sm btn-default']) ?>
+                    <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-left">
+                        <li><?= $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id]) ?> </li>
+                        <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?> </li>
+                        <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?> </li>
+                                            </ul>
+                </div>
+            </div>
+        </h3>
+    </div>
 </div>
+
+
+<!-- Begin page content -->
+    <main id="main-container">
+
+         <!-- Content -->
+         <div class="container">
+
+             <table class="table table-hover">
+                                                                    <tr>
+                     <th><?= __('Username') ?></th>
+                     <td style="text-align: right"><?= h($user->username) ?></td>
+                 </tr>
+                                                                    <tr>
+                     <th><?= __('Password') ?></th>
+                     <td style="text-align: right"><?= h($user->password) ?></td>
+                 </tr>
+                                                                    <tr>
+                     <th><?= __('Role') ?></th>
+                     <td style="text-align: right"><?= h($user->role) ?></td>
+                 </tr>
+                                                                    <tr>
+                     <th><?= __('Uid') ?></th>
+                     <td style="text-align: right"><?= h($user->uid) ?></td>
+                 </tr>
+                                                                                                                       <tr>
+                     <th><?= __('Id') ?></th>
+                     <td style="text-align: right"><?= $this->Number->format($user->id) ?></td>
+                 </tr>
+                                                                                     <tr>
+                     <th><?= __('Created') ?></th>
+                     <td style="text-align: right"><?= h($user->created) ?></td>
+                 </tr>
+                                  <tr>
+                     <th><?= __('Modified') ?></th>
+                     <td style="text-align: right"><?= h($user->modified) ?></td>
+                 </tr>
+                                                                                     <tr>
+                     <th><?= __('Verified') ?></th>
+                     <td style="text-align: right"><?= $user->verified ? __('Yes') : __('No'); ?></td>
+                 </tr>
+                                               </table>
+
+
+
+                                   </div>
+         <!-- Content -->
+
+	</main>
+<!-- End page Content -->
