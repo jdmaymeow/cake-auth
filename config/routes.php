@@ -9,6 +9,9 @@ Router::plugin(
     function (RouteBuilder $routes) {
         $routes->extensions(['json']);
         $routes->fallbacks(DashedRoute::class);
+        $routes->prefix('admin', function ($routes) {
+            $routes->fallbacks(DashedRoute::class);
+        });
     }
 );
 
