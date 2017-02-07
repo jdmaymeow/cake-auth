@@ -33,9 +33,10 @@ $this->layout = 'CakeBootstrap.default'; ?>
             <div class="col-md-4">
                 <h3>Login</h3>
                 <?= $this->Form->create() ?>
-                    <?= $this->Form->input('username') ?>
-                    <?= $this->Form->input('password') ?>
+                <?= $this->Form->input('username') ?>
+                <?= $this->Form->input('password') ?>
                 <?= $this->Form->button(__('Login')); ?>
+                <?= $this->Html->link('Forgotten passowrd?', ['action' => 'forgottenPassword']) ?>
                 <?= $this->Form->end() ?>
             </div>
         </div>
