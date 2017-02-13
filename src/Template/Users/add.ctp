@@ -1,11 +1,16 @@
-<?php $this->layout = 'CakeBootstrap.default'; ?>
+<?php $this->layout = 'CakeBootstrap.admin'; ?>
+
+<?php $this->start('admin_menu'); ?>
+<?= $this->element('CakeAuth.admin_menu') ?>
+<?php $this->end() ?>
+
 <?php $this->start('subtitle_for_page'); ?>
 Cms
 <?php $this->end(); ?>
 
 <!-- Header -->
-<div class="cinema border-bottom-gray bg-amethyst-sl">
-    <div class="container">
+<div class="cinema border-bottom-gray">
+    <div class="container-fluid">
         <h3><?= __('Users') ?>
             <div class="pull-right">
 
