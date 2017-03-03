@@ -1,11 +1,16 @@
-<?php $this->layout = 'CakeBootstrap.default'; ?>
+<?php $this->layout = 'CakeBootstrap.admin'; ?>
+
+<?php $this->start('admin_menu'); ?>
+<?= $this->element('CakeAuth.admin_menu') ?>
+<?php $this->end() ?>
+
 <?php $this->start('subtitle_for_page'); ?>
 Cms
 <?php $this->end(); ?>
 
 <!-- Header -->
-<div class="cinema border-bottom-gray bg-amethyst-sl">
-    <div class="container">
+<div class="cinema border-bottom-gray">
+    <div class="container-fluid">
         <h3><?= __('Users') ?>
             <div class="pull-right">
 
@@ -31,7 +36,7 @@ Cms
          <div class="container">
              <div class="panel panel-default">
                  <div class="panel-heading">
-                     <h4 class="panel-title">Form</h4>
+                     <h4 class="panel-title">Edit user</h4>
                  </div>
                  <div class="panel-body">
                      <?= $this->Form->create($user, ['align' => [
@@ -55,10 +60,13 @@ Cms
                                                   echo $this->Form->input('uid');
                                                   ?>
                      </div>
-                     <div class="form-action">
+
+                 </div>
+                 <div class="panel-footer">
+                     <div class="form-foo">
                          <div class="row">
                              <div class="col-md-offset-3 col-md-4">
-                                 <?= $this->Form->button(__('Submit'), ['class' => 'btn green']) ?>
+                                 <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
                              </div>
                          </div>
                      </div>

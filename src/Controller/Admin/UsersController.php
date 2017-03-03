@@ -4,6 +4,8 @@ namespace CakeAuth\Controller\Admin;
 use Cake\Event\Event;
 use CakeAuth\Controller\AbstractUsersController;
 use CakeAuth\Controller\AppController;
+use MayMeow\Helpers\TwoStepAuth;
+use MayMeow\Helpers\TwoStepAuthInterface;
 
 /**
  * Users Controller
@@ -40,5 +42,45 @@ class UsersController extends AbstractUsersController
                 return $this->redirect(['action' => 'view', $id]);
             }
         }
+    }
+
+    public function activateTwoFa($id = null)
+    {
+        $user = $this->Users->get($id);
+        $secretFactory = new TwoStepAuth();
+        $secret = $secretFactory->createSecret()->key();
+        $secretReadable = $secretFactory->readableKey();
+
+        if($this->request->is(['patch', 'post', 'put'])) {
+            // inf secret is not verified return values back to form for validation
+            if (!$secretFactory->verifyCode($this->request->data('two_fa_secret'), $this->request->data('pin'))) {
+                $secret = $this->request->data('two_fa_secret');
+                $secretReadable = $secretFactory->readableKey($secret);
+            } else {
+                // else save it to user
+                $user = $this->Users->patchEntity($user, $this->request->data);
+                if ($this->Users->save($user)) {
+                    $this->Flash->success(__('2FA was activated'));
+                    return $this->redirect(['action' => 'view', $id]);
+                }
+            }
+        }
+
+        $this->set('secret', $secret);
+        $this->set(compact('user', 'secretReadable'));
+        $this->set('_serialize', ['user']);
+    }
+
+    public function deactivateTwoFa($id = null)
+    {
+        $user = $this->Users->get($id);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $user->two_fa_secret = null;
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('2FA was deactivated'));
+            }
+        }
+
+        return $this->redirect(['action' => 'view', $id]);
     }
 }

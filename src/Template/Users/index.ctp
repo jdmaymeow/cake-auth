@@ -48,6 +48,7 @@ Cms
 
                             <td><?= $this->Paginator->sort('role') ?></td>
                             <td><?= $this->Paginator->sort('verified') ?></td>
+                            <td>2FA</td>
                             <td><?= $this->Paginator->sort('created') ?></td>
 
                             <td class="actions text-center"><?= __('Actions') ?></td>
@@ -64,6 +65,7 @@ Cms
 
                                 <td><label class="label label-info"><?= h($user->role) ?></label></td>
                                 <td><?= h($user->verified) ?></td>
+                                <td><?= $user->two_fa_secret ? '<i class="fa fa-lock text-success"></i>' : '<i class="fa fa-times"></i>' ?></td>
                                 <td><?= h($user->created) ?></td>
 
                                 <td class="actions text-center">

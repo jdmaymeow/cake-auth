@@ -16,8 +16,7 @@ Cms
 
                 <div class="btn-group">
                     <?= $this->Html->link(__('New User'), ['action' => 'add'], ['class' => 'btn btn-sm btn-default']) ?>
-                    <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                    <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-chevron-down"></i>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-left">
@@ -37,7 +36,7 @@ Cms
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4 class="panel-title">New user</h4>
+                <h4 class="panel-title">Form</h4>
             </div>
             <div class="panel-body">
                 <?= $this->Form->create($user, ['align' => [
@@ -54,26 +53,32 @@ Cms
 
                 <div class="form-body">
                     <?php
-                    echo $this->Form->input('username');
-                    echo $this->Form->input('password');
-                    echo $this->Form->input('role');
-                    echo $this->Form->input('email');
-                    //echo $this->Form->input('uid');
+                        echo $this->Form->input('two_fa_secret', ['value' => $secret, 'type' => 'hidden']);
+                    ?>
+
+                    <div class="row">
+                        <div class="col-md-3 text-right"><strong>Readable format:</strong></div>
+                        <div class="col-md-9"><strong><?= $secretReadable ?></strong>
+                            <p>Write this int your authenticator application without dashes</p>
+                        </div>
+                    </div>
+
+                    <?php
+                    echo $this->Form->input('pin', ['placeholder' => 'Enter your PIN']);
                     ?>
                 </div>
-            </div>
 
-            <div class="panel-footer">
-                <div class="form-foo">
+
+
+                <div class="form-action">
                     <div class="row">
                         <div class="col-md-offset-3 col-md-4">
-                            <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+                            <?= $this->Form->button(__('Activate 2FA'), ['class' => 'btn green']) ?>
                         </div>
                     </div>
                 </div>
                 <?= $this->Form->end() ?>
             </div>
-
         </div>
     </div>
     <!-- Content -->

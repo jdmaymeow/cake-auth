@@ -122,9 +122,30 @@ Cms
                 </div>
             </div>
             <?= $this->Form->end() ?>
-            <h4 class="page-header">Deactivate profile</h4>
+
+            <h4 class="page-header">2FA Authentication <label class="label label-danger">Beta</label></h4>
             <div class="row" style="margin-bottom: 10px">
-                <div class="col-md-3">Here you can change your image</div>
+                <div class="col-md-3"><strong>Current Status</strong></div>
+                <div class="col-md-9">
+                    <?= $user->two_fa_secret ? 'Turned ON' : 'Turned off' ?>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 10px">
+                <div class="col-md-3">For increase security you can activate 2FA authentication. It works with most authenticators for example GoogleAuthenticator</div>
+                <div class="col-md-9">
+                    <?php
+                        if($user->two_fa_secret != null) {
+                            echo $this->Form->postlink('Deactivate 2FA', ['action' => 'deactivateTwoFa', $user->id], ['class' => 'btn btn-warning']);
+                        } else {
+                            echo $this->Html->link('Activate 2FA', ['action' => 'activateTwoFa', $user->id], ['class' => 'btn btn-success']);
+                        }
+                    ?>
+                </div>
+            </div>
+
+            <h4 class="page-header">Deactivate profile <label class="label label-info">Not implemented</label></h4>
+            <div class="row" style="margin-bottom: 10px">
+                <div class="col-md-3">Profile can be activated back if you change your mind</div>
                 <div class="col-md-9">
                     <a href="#" class="btn btn-danger">Deactivate profile</a>
                 </div>
