@@ -1,16 +1,12 @@
-<?php $this->layout = 'CakeBootstrap.admin'; ?>
-
-<?php $this->start('admin_menu'); ?>
-<?= $this->element('CakeAuth.admin_menu') ?>
-<?php $this->end() ?>
+<?php $this->layout = 'CakeBootstrap.default'; ?>
 
 <?php $this->start('subtitle_for_page'); ?>
 Cms
 <?php $this->end() ?>
 <!-- Header -->
-<div class="cinema border-bottom-gray">
-    <div class="container-fluid">
-        <h3><i class="fa fa-diamond text-amethyst"></i> <?= h($user->username) ?>
+<div class="cinema border-bottom-gray with-nav-tabs">
+    <div class="container">
+        <h3><i class="fa fa-diamond text-amethyst"></i> Users / <?= h($user->username) ?>
             <div class="pull-right">
 
                 <div class="btn-group">
@@ -27,6 +23,9 @@ Cms
                 </div>
             </div>
         </h3>
+
+        <?= $this->element('CakeAuth.admin_menu') ?>
+
     </div>
 </div>
 
@@ -35,7 +34,7 @@ Cms
 <main id="main-container">
 
     <!-- Content -->
-    <div class="container-fluid">
+    <div class="container">
 
         <table class="table table-hover">
             <tr>

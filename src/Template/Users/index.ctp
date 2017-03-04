@@ -1,17 +1,13 @@
-<?php $this->layout = 'CakeBootstrap.admin'; ?>
-
-<?php $this->start('admin_menu'); ?>
-<?= $this->element('CakeAuth.admin_menu') ?>
-<?php $this->end() ?>
+<?php $this->layout = 'CakeBootstrap.default'; ?>
 
 <?php $this->start('subtitle_for_page'); ?>
 Cms
 <?php $this->end() ?>
 
 <!-- Header -->
-<div class="cinema border-bottom-gray">
-    <div class="container-fluid">
-        <h3><?= __('Users') ?>
+<div class="cinema border-bottom-gray with-nav-tabs">
+    <div class="container">
+        <h3><i class="fa fa-shield"></i> IAM & Admin / <?= __('Users') ?>
             <div class="pull-right">
 
                 <div class="btn-group">
@@ -28,6 +24,8 @@ Cms
             </div>
         </h3>
 
+        <?= $this->element('CakeAuth.admin_menu') ?>
+
     </div>
 </div>
 
@@ -35,7 +33,7 @@ Cms
 <main id="main-container">
 
     <!-- Content -->
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
 
