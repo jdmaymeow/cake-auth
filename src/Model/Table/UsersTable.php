@@ -37,6 +37,10 @@ class UsersTable extends Table
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->hasOne('Profiles', [
+            'dependent' => true
+        ]);
     }
 
     /**

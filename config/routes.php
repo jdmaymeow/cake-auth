@@ -12,6 +12,9 @@ Router::plugin(
         $routes->prefix('admin', function ($routes) {
             $routes->fallbacks(DashedRoute::class);
         });
+        $routes->prefix('settings', function ($routes) {
+            $routes->fallbacks(DashedRoute::class);
+        });
     }
 );
 
